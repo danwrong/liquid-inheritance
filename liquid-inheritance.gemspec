@@ -9,11 +9,11 @@ Gem::Specification.new do |s|
   s.date = %q{2009-04-09}
   s.description = %q{Adds Django style template inheritance to Liquid}
   s.email = %q{dan@danwebb.net}
-  s.extra_rdoc_files = ["CHANGELOG", "lib/liquid_inheritance.rb", "lib/tags/block.rb", "lib/tags/extends.rb", "LICENSE", "README"]
-  s.files = ["CHANGELOG", "lib/liquid_inheritance.rb", "lib/tags/block.rb", "lib/tags/extends.rb", "LICENSE", "liquid-inheritance.gemspec", "Manifest", "Rakefile", "README", "test/liquid_inheritance_test.rb"]
+  s.extra_rdoc_files = ["CHANGELOG", "lib/liquid_inheritance.rb", "lib/tags/block.rb", "lib/tags/extends.rb", "LICENSE", "README.textile"]
+  s.files = ["CHANGELOG", "lib/liquid_inheritance.rb", "lib/tags/block.rb", "lib/tags/extends.rb", "LICENSE", "liquid-inheritance.gemspec", "Manifest", "Rakefile", "README.textile", "test/liquid_inheritance_test.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/danwrong/liquid-inheritance/}
-  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Liquid-inheritance", "--main", "README"]
+  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Liquid-inheritance", "--main", "README.textile"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{liquid-inheritance}
   s.rubygems_version = %q{1.3.1}

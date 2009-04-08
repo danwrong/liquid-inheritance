@@ -6,5 +6,5 @@ LICENSE
 liquid-inheritance.gemspec
 Manifest
 Rakefile
-README
+README.textile
 test/liquid_inheritance_test.rb
