@@ -1,0 +1,15 @@
+h1. Liquid Inheritance
+
+(C) Dan Webb 2009 under and MIT License (see LICENSE)
+
+This gem adds Django-style template inheritance to the "Liquid":http://www.liquidmarkup.org/ templating language.
+
+h2. Usage
+
+Simply install the gem then in your project:
+
+@require 'liquid-inheritance'@
+
+You then have access to the extends and block tags just like you do in Django.  It works identically so for more info "read the Django docs on template inheritance":http://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance
+
+That's all folks.
