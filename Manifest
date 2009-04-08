@@ -1,6 +1,10 @@
 CHANGELOG
 lib/liquid_inheritance.rb
+lib/tags/block.rb
+lib/tags/extends.rb
 LICENSE
+liquid-inheritance.gemspec
+Manifest
 Rakefile
 README
-Manifest
+test/liquid_inheritance_test.rb
