@@ -30,6 +30,10 @@ module LiquidInheritance
           pb.parent = block.parent
           pb.add_parent(pb.nodelist)
           pb.nodelist = block.nodelist
+        else
+          if is_extending?(template)
+            template.root.nodelist << block
+          end
         end
       end
       
@@ -86,6 +90,10 @@ module LiquidInheritance
       end
       
       blocks
+    end
+    
+    def is_extending?(template)
+      template.root.nodelist.any? { |node| node.is_a?(Extends) }
     end
     
   end

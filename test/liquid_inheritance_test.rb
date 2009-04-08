@@ -26,7 +26,7 @@ class TestFileSystem
         
       end
       }
-    else
+    elsif 'nested'
       %{
         {% extends 'complex' %}
         
@@ -36,6 +36,14 @@ class TestFileSystem
         
         {% block another %}
         from nested (another)
+        {% endblock %}
+      }
+    else
+      %{
+        {% extends 'complex' %}
+        
+        {% block thing %}
+        from nested
         {% endblock %}
       }
     end
@@ -132,6 +140,20 @@ class LiquidInheritanceTest < Test::Unit::TestCase
       
       assert_contains(res, /booyeah/)
       assert_contains(res, /from nested/)
+    end
+    
+    should 'should work with nested templates if middle template skips a block' do
+      template = Liquid::Template.parse %{
+        {% extends 'nested2' %}
+        
+        {% block another %}
+        win
+        {% endblock %}
+      }
+      
+      res = template.render
+      
+      assert_contains(res, /win/)
     end
     
     should 'should render parent for block.super' do
