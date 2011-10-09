@@ -78,7 +78,7 @@ module LiquidInheritance
     end
     
     def find_blocks(node, blocks={})
-      if node.respond_to?(:nodelist)
+      if node.respond_to?(:nodelist) && !node.nodelist.nil?
         node.nodelist.inject(blocks) do |b, node|
           if node.is_a?(LiquidInheritance::Block)
             b[node.name] = node
