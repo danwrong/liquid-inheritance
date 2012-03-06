@@ -59,7 +59,7 @@ module LiquidInheritance
               unknown_tag($1, $2, tokens)
             end              
           else
-            raise Liquid::SyntaxError, "Tag '#{token}' was not properly terminated with regexp: #{TagEnd.inspect} "
+            raise Liquid::SyntaxError, "Tag '#{token}' was not properly terminated with regexp: #{Liquid::TagEnd.inspect} "
           end
         when /^#{Liquid::VariableStart}/
           @nodelist << create_variable(token)
