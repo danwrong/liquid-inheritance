@@ -81,9 +81,11 @@ module LiquidInheritance
         node.nodelist.inject(blocks) do |b, node|
           if node.is_a?(LiquidInheritance::Block)
             b[node.name] = node
-          else
-            find_blocks(node, b)
+          #else
           end
+          
+          find_blocks(node, b)
+          #end
           
           b
         end
