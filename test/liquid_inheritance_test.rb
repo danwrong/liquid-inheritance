@@ -3,7 +3,6 @@ $:.unshift(File.join(File.dirname(__FILE__), '../lib'))
 require 'rubygems'
 require 'test/unit'
 require 'shoulda'
-require 'redgreen' rescue nil
 
 require 'liquid_inheritance'
 
@@ -15,9 +14,11 @@ class TestFileSystem
     elsif path == 'complex'
       %{
         beginning
+        {% assign foo = 'monkey' %}
         
         {% block thing %}
         rarrgh
+        {{ foo }}
         {% endblock %}
         
         {% block another %}
@@ -168,6 +169,7 @@ class LiquidInheritanceTest < Test::Unit::TestCase
       res = template.render 'a' => 1234
       
       assert_contains(res, /rarrgh/)
+      assert_contains(res, /monkey/)
     end
   end
 end

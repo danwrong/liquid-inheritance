@@ -59,7 +59,7 @@ module LiquidInheritance
               unknown_tag($1, $2, tokens)
             end              
           else
-            raise Liquid::SyntaxError, "Tag '#{token}' was not properly terminated with regexp: #{TagEnd.inspect} "
+            raise Liquid::SyntaxError, "Tag '#{token}' was not properly terminated with regexp: #{Liquid::TagEnd.inspect} "
           end
         when /^#{Liquid::VariableStart}/
           @nodelist << create_variable(token)
@@ -72,12 +72,13 @@ module LiquidInheritance
     end
     
     def load_template(context)
-      source = Liquid::Template.file_system.read_template_file(context[@template_name])      
+      file_system = context.registers[:file_system] || Liquid::Template.file_system
+      source = file_system.read_template_file(context[@template_name])      
       Liquid::Template.parse(source)
     end
     
     def find_blocks(node, blocks={})
-      if node.respond_to?(:nodelist)
+      if node.respond_to?(:nodelist) && !node.nodelist.nil?
         node.nodelist.inject(blocks) do |b, node|
           if node.is_a?(LiquidInheritance::Block)
             b[node.name] = node
